@@ -11,7 +11,7 @@ npm install @marceloboeira/aws-lambda-datadog
 
 ## Usage
 
-```
+```javascript
 var metrics = require('@marceloboeira/aws-lambda-datadog');
 var defaultTags = ["context:ingestion", "environment:production"]
 
