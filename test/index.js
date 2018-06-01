@@ -2,31 +2,31 @@
 
 var sinon = require("sinon")
 var chai = require("chai")
-var sinonChai = require("sinon-chai")
 var mochaSinon = require("mocha-sinon")
 var expect = require("chai").expect
 var metrics = require("../src/index")
 
-chai.use(sinonChai)
+chai.use(require("sinon-chai"))
+chai.use(require("chai-match"))
 
 describe("aws-datadog-metrics", function() {
   beforeEach(function() {
-    // we freeze time and mock the console to make it easier to test
-    var clock = sinon.useFakeTimers(new Date(2018, 4, 8).getTime())
-    this.sinon.stub(console, "log")
+    // we freeze time and spy the console to make it easier to test
+    this.clock = sinon.useFakeTimers(new Date(2018, 4, 8).getTime())
+    this.sinon.spy(console, "log")
   })
 
   describe("increment", function() {
     it("formats the message properly", function() {
-      var result = metrics.increment("foo", 1, [])
+      metrics.increment("foo", 1, [])
 
-      expect(console.log).to.have.been.calledWith("MONITORING|1525730400000|1|count|foo|#")
+      expect(console.log.getCall(0).args[0]).to.match(/MONITORING\|\d+\|1\|count\|foo\|#/)
     })
 
     it("joins the tags", function() {
-      var result = metrics.increment("foo.bar", 1, ["tag:value", "another:tag"])
+      metrics.increment("foo.bar", 1, ["tag:value", "another:tag"])
 
-      expect(console.log).to.have.been.calledWith("MONITORING|1525730400000|1|count|foo.bar|#tag:value,another:tag")
+      expect(console.log.getCall(0).args[0]).to.match(/MONITORING\|\d+\|1\|count\|foo\.bar\|#tag:value,another:tag/)
     })
   })
 })
