@@ -31,7 +31,8 @@ push("new", function(err, data)){
 
 |  method   | type  | implemented |
 | --------- | ----- | ----------- |
-| increment | count | yes         |
+| increment | count | [x]         |
+| gauge     | gauge | [x]         |
 
 ## References
 

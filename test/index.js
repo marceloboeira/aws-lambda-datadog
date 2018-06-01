@@ -29,4 +29,12 @@ describe("aws-datadog-metrics", function() {
       expect(console.log.getCall(0).args[0]).to.match(/MONITORING\|\d+\|1\|count\|foo\.bar\|#tag:value,another:tag/)
     })
   })
+
+  describe("gauge", function() {
+    it("uses the gauge keyword as the name", function() {
+      metrics.gauge("foo", 23, ["a:b"])
+
+      expect(console.log.getCall(0).args[0]).to.match(/MONITORING\|\d+\|23\|gauge\|foo\|#a:b/)
+    })
+  })
 })
