@@ -6,13 +6,13 @@ A small library to facilitate sending metrics from an aws lambda function to dat
 ## Installation
 
 ```
-npm install @marceloboeira/aws-lambda-datadog
+npm install aws-lambda-datadog
 ```
 
 ## Usage
 
 ```javascript
-var metrics = require('@marceloboeira/aws-lambda-datadog');
+var metrics = require("aws-lambda-datadog");
 var defaultTags = ["context:ingestion", "environment:production"]
 
 ...
