@@ -29,10 +29,10 @@ push("new", function(err, data)){
 
 ## Api Reference
 
-|  method   | type  | implemented |
-| --------- | ----- | ----------- |
-| increment | count | [x]         |
-| gauge     | gauge | [x]         |
+|  method   | type  | params                   |
+| --------- | ----- | ------------------------ |
+| increment | count | metric name, value, tags |
+| gauge     | gauge | metric name, value, tags |
 
 ## References
 
@@ -43,5 +43,5 @@ push("new", function(err, data)){
 
 ## Tests
 
-`make test` - runs the suite once
-`make watch_test` - runs the suite everytime a file changes on `src/**` or `test/**`. (needs https://github.com/cristianoliveira/funzzy)
+* `make test` - runs the suite once
+* `make watch_test` - runs the suite everytime a file changes on `src/**` or `test/**`. (needs https://github.com/cristianoliveira/funzzy)
