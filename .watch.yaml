@@ -1,0 +1,3 @@
+- name: run my tests
+  run: make test
+  change: ['src/**', 'test/**']

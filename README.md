@@ -42,4 +42,5 @@ push("new", function(err, data)){
 
 ## Tests
 
-`make test`
+`make test` - runs the suite once
+`make watch_test` - runs the suite everytime a file changes on `src/**` or `test/**`. (needs https://github.com/cristianoliveira/funzzy)
