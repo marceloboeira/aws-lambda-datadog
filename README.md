@@ -27,6 +27,12 @@ push("new", function(err, data)){
 
 ```
 
+## Api Reference
+
+|  method   | type  | implemented |
+| --------- | ----- | ----------- |
+| increment | count | yes         |
+
 ## References
 
 * https://www.datadoghq.com/blog/how-to-monitor-lambda-functions/
