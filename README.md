@@ -1,4 +1,4 @@
-aws-lambda-datadog
+aws-lambda-datadog [![Build Status](https://travis-ci.com/marceloboeira/aws-lambda-datadog.svg?branch=master)](https://travis-ci.com/marceloboeira/aws-lambda-datadog)
 =========
 
 A small library to facilitate sending metrics from an aws lambda function to datadog.
