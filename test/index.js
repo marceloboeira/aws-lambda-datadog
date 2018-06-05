@@ -37,4 +37,12 @@ describe("aws-datadog-metrics", function() {
       expect(console.log.getCall(0).args[0]).to.match(/MONITORING\|\d+\|23\|gauge\|foo\|#a:b/)
     })
   })
+
+  describe("histogram", function() {
+    it("uses the histogram keyword as the name", function() {
+      metrics.histogram("foo", 29, ["d:e"])
+
+      expect(console.log.getCall(0).args[0]).to.match(/MONITORING\|\d+\|29\|histogram\|foo\|#d:e/)
+    })
+  })
 })

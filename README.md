@@ -31,8 +31,9 @@ push("new", function(err, data)){
 
 |  method   | type  | params                   |
 | --------- | ----- | ------------------------ |
-| increment | count | metric name, value, tags |
-| gauge     | gauge | metric name, value, tags |
+| increment | count | metric name, value, tags (default is []) |
+| gauge     | gauge | metric name, value, tags (default is []) |
+| histogram | histogram | metric name, value, tags (default is []) |
 
 ## References
 

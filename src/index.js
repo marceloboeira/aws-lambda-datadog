@@ -12,4 +12,10 @@ module.exports = {
     var type = "gauge"
     console.log(`MONITORING|${epochtimes}|${value}|${type}|${metric}|#${tags.join(",")}`)
   },
+
+  histogram: function(metric, value, tags = []) {
+    var epochtimes = Date.now()
+    var type = "histogram"
+    console.log(`MONITORING|${epochtimes}|${value}|${type}|${metric}|#${tags.join(",")}`)
+  }
 }
