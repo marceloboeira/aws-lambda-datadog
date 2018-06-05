@@ -18,7 +18,7 @@ describe("aws-datadog-metrics", function() {
 
   describe("increment", function() {
     it("formats the message properly", function() {
-      metrics.increment("foo", 1, [])
+      metrics.increment("foo")
 
       expect(console.log.getCall(0).args[0]).to.match(/MONITORING\|\d+\|1\|count\|foo\|#/)
     })
