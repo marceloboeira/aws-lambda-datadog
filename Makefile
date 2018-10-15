@@ -12,3 +12,7 @@ test:
 .PHONY: watch_test
 watch_test:
 	$(FUNZZY_BIN)
+
+.PHONY: publish
+publish:
+	$(NPM_BIN) publish
