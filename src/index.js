@@ -1,21 +1,24 @@
 "use strict";
 
 module.exports = {
+  TYPE_COUNT: "count",
+  TYPE_GAUGE: "gauge",
+  TYPE_HISTOGRAM: "histogram",
+
   increment: function(metric, count = 1, tags = []) {
-    var epochtimes = Date.now()
-    var type = "count"
-    console.log(`MONITORING|${epochtimes}|${count}|${type}|${metric}|#${tags.join(",")}`)
+    this.log(this.TYPE_COUNT, metric, count, tags)
   },
 
   gauge: function(metric, value, tags = []) {
-    var epochtimes = Date.now()
-    var type = "gauge"
-    console.log(`MONITORING|${epochtimes}|${value}|${type}|${metric}|#${tags.join(",")}`)
+    this.log(this.TYPE_GAUGE, metric, value, tags)
   },
 
   histogram: function(metric, value, tags = []) {
+    this.log(this.TYPE_HISTOGRAM, metric, value, tags)
+  },
+
+  log: function(type, metric, value, tags = []) {
     var epochtimes = Date.now()
-    var type = "histogram"
     console.log(`MONITORING|${epochtimes}|${value}|${type}|${metric}|#${tags.join(",")}`)
-  }
+  },
 }

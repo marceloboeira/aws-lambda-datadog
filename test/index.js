@@ -16,7 +16,7 @@ describe("aws-datadog-metrics", function() {
     this.sinon.spy(console, "log")
   })
 
-  describe("increment", function() {
+  describe("basic functionality", function() {
     it("formats the message properly", function() {
       metrics.increment("foo")
 
@@ -27,6 +27,14 @@ describe("aws-datadog-metrics", function() {
       metrics.increment("foo.bar", 1, ["tag:value", "another:tag"])
 
       expect(console.log.getCall(0).args[0]).to.match(/MONITORING\|\d+\|1\|count\|foo\.bar\|#tag:value,another:tag/)
+    })
+  })
+
+  describe("increment", function() {
+    it("uses the count keyword as the name", function() {
+      metrics.increment("foo", 23, ["m:a"])
+
+      expect(console.log.getCall(0).args[0]).to.match(/MONITORING\|\d+\|23\|count\|foo\|#m:a/)
     })
   })
 
