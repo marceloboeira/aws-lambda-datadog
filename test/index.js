@@ -12,8 +12,6 @@ chai.use(require("chai-match"))
 
 describe("aws-datadog-metrics", function() {
   beforeEach(function() {
-    // we freeze time and spy the console to make it easier to test
-    this.clock = sinon.useFakeTimers(new Date(2018, 4, 8).getTime())
     this.sinon.spy(logger, "log")
   })
 
