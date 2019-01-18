@@ -6,6 +6,7 @@ module.exports = {
   TYPE_COUNT: "count",
   TYPE_GAUGE: "gauge",
   TYPE_HISTOGRAM: "histogram",
+  TYPE_CHECK: "check",
 
   increment: function(metric, count = 1, tags = []) {
     logger.log(this.TYPE_COUNT, metric, count, tags)
@@ -17,5 +18,9 @@ module.exports = {
 
   histogram: function(metric, value, tags = []) {
     logger.log(this.TYPE_HISTOGRAM, metric, value, tags)
+  },
+
+  check: function(metric, value, tags = []) {
+    logger.log(this.TYPE_CHECK, metric, value, tags)
   },
 }

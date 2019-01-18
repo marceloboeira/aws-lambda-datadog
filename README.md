@@ -29,11 +29,12 @@ push("new", function(err, data)){
 
 ## Api Reference
 
-|  method   | type  | params                   |
-| --------- | ----- | ------------------------ |
-| increment | count | metric name, value, tags (default is []) |
-| gauge     | gauge | metric name, value, tags (default is []) |
-| histogram | histogram | metric name, value, tags (default is []) |
+|  method   | type       | params                                   |
+| --------- | ---------- | ------------------------                 |
+| increment | count      | metric name, value, tags (default is []) |
+| gauge     | gauge      | metric name, value, tags (default is []) |
+| histogram | histogram  | metric name, value, tags (default is []) |
+| check     | check      | metric name, value, tags (default is []) |
 
 ## References
 

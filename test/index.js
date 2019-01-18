@@ -40,4 +40,12 @@ describe("aws-datadog-metrics", function() {
       expect(logger.log.getCall(0).args).to.eql(["histogram", "foo", 29, ["d:e"]])
     })
   })
+
+  describe("check", function() {
+    it("uses the check keyword as the type", function() {
+      metrics.check("foo", 3, ["d:ef"])
+
+      expect(logger.log.getCall(0).args).to.eql(["check", "foo", 3, ["d:ef"]])
+    })
+  })
 })
